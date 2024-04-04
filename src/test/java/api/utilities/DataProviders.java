@@ -11,6 +11,7 @@ public class DataProviders {
 	
 	@DataProvider(name="Data")
 	public String [][] getAlldata() throws IOException{
+		
 		String path=System.getProperty("user.dir")+"//testData//UserTestData.xlsx";
 		ExcelUtilities xl=new ExcelUtilities(path);
 		
@@ -19,7 +20,7 @@ public class DataProviders {
 		
 		String apidata[][]=new String[rownum][colnum];
 		
-		for (int i = 1; i < rownum; i++) {
+		for (int i = 1; i <=rownum; i++) {
 			for (int j = 0; j < colnum; j++) {
 				apidata[i-1][j]=xl.getcellData("sheet1", i, j);
 			}
@@ -39,9 +40,10 @@ public class DataProviders {
 		
 		String apidata[]=new String[rownum];
 		
-		for (int i = 0; i < apidata.length; i++) {
+		for (int i = 1; i <= rownum; i++) {
 			apidata[i-1]=xl.getcellData("sheet1", i, 1);
 		}
+		
 		return apidata;
 		
 	}
